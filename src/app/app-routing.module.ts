@@ -8,12 +8,12 @@ import { GuestComponent } from './theme/layouts/guest/guest.component';
 
 const routes: Routes = [
   {
-    path: '',  // Đây là đường dẫn gốc cho GuestComponent
+    path: '', // Đây là đường dẫn gốc cho GuestComponent
     component: GuestComponent,
     children: [
       {
         path: '',
-        redirectTo: '/login',  // Thêm dòng này để chuyển hướng đến /login
+        redirectTo: '/login', // Thêm dòng này để chuyển hướng đến /login
         pathMatch: 'full'
       },
       {
@@ -32,19 +32,19 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/dashboard/default',
+        redirectTo: '/project',
         pathMatch: 'full'
       },
       {
-        path: 'dashboard/default',
+        path: 'project',
         loadComponent: () => import('./demo/default/dashboard/dashboard.component')
       },
       {
-        path: 'typography',
+        path: 'task',
         loadComponent: () => import('./demo/ui-component/typography/typography.component')
       },
       {
-        path: 'color',
+        path: 'menus',
         loadComponent: () => import('./demo/ui-component/ui-color/ui-color.component')
       },
       {
@@ -52,7 +52,7 @@ const routes: Routes = [
         loadComponent: () => import('./demo/other/sample-page/sample-page.component')
       }
     ]
-  },
+  }
 ];
 
 @NgModule({

@@ -1,10 +1,18 @@
 <nav>
   <div class="navbar-wrapper">
     <div class="m-header">
-      <a href="javascript:" class="b-brand">
-        <img src="assets/images/logo-dark.svg" alt="theme-logo" class="logo logo-dark logo-lg" />
-      </a>
+      <img src="assets/images/logo-dark.svg" alt="theme-logo" class="logo logo-dark logo-lg" />
     </div>
     <!-- <app-nav-content (NavCollapsedMob)="navCollapseMob()" class="scroll-div w-100 compact"></app-nav-content> -->
+
+    <ul *ngIf="menus.length > 0">
+      <li *ngFor="let menu of menus">
+        <a [routerLink]="menu.menuUrl" [class.active]="isActive(menu)" (click)="selectMenu(menu)">
+          <i class="fa" [ngClass]="menu.icon" style="margin-right: 5px;"></i>
+          {{ menu.menuName }}
+        </a>
+      </li>
+    </ul>
+
   </div>
 </nav>

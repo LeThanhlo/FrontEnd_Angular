@@ -2,54 +2,38 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router'; // Import Router để điều hướng
 import { HttpClient } from '@angular/common/http'; // Import HttpClient để gọi API
 import { RouterModule } from '@angular/router'; // Import RouterModule
+import { LoginService } from './login.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterModule], // Thêm RouterModule ở đây
+  imports: [RouterModule, FormsModule, CommonModule], // Thêm RouterModule ở đây
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
+  username = '';
+  password = '';
+  errorMessage = '';
+  constructor(
+    private loginService: LoginService,
+    private router: Router
+  ) {}
 
-  SignInOptions = [
-    {
-      image: 'assets/images/authentication/google.svg',
-      name: 'Google'
-    },
-    {
-      image: 'assets/images/authentication/twitter.svg',
-      name: 'Twitter'
-    },
-    {
-      image: 'assets/images/authentication/facebook.svg',
-      name: 'Facebook'
-    }
-  ];
-
-  constructor(private router: Router, private http: HttpClient) {}
-
-  login() {
-    const loginData = {
-      username: this.username,
-      password: this.password
-    };
-
-    this.http.post<any>('https://localhost:7251/login', loginData)
-      .subscribe({
-        next: (response) => {
-          if (response.success) {
-            this.router.navigate(['/dashboard/default']);
-          } else {
-            alert('Login failed: ' + response.message);
-          }
-        },
-        error: (error) => {
-          console.error('Có lỗi xảy ra!', error);
-          alert('Đăng nhập không thành công. Vui lòng thử lại sau.');
+  login(): void {
+    this.loginService.login(this.username, this.password).subscribe(
+      (response) => {
+        if (response && response.accessToken) {
+          this.loginService.saveToken(response.accessToken);
+          localStorage.setItem('menus', JSON.stringify(response.menus)); // Lưu menu vào localStorage
+          this.router.navigate(['/project']); // Điều hướng đến dashboard
         }
-      });
+      },
+      (error) => {
+        this.errorMessage = 'Đăng nhập không thành công. Vui lòng kiểm tra lại thông tin!';
+      }
+    );
   }
 }

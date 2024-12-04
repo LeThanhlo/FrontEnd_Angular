@@ -7,12 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './theme/shared/shared.module';
-import { LoginComponent } from './demo/authentication/login/login.component';
 import { RouterModule } from '@angular/router';
+import { LoginModule } from './demo/authentication/login/login.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule, RouterModule, LoginComponent ],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule, RouterModule, LoginModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

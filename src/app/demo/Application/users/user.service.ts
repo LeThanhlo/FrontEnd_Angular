@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PagedResult, User } from './user.model';
+import { PagedResult, User } from './users-list-component/user.model';
 
 @Injectable({
   providedIn: 'root'

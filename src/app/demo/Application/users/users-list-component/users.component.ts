@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from './user.service';
+import { UserService } from '../user.service';
 import { PagedResult } from './user.model';
 import { CommonModule } from '@angular/common';
 import { firstValueFrom } from 'rxjs';

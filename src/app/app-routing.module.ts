@@ -53,7 +53,7 @@ const routes: Routes = [
       },
       {
         path: 'users',
-        loadComponent: () => import('./demo/Application/users/users.component').then((m) => m.UsersComponent)
+        loadComponent: () => import('./demo/Application/users/users-list-component/users.component').then((m) => m.UsersComponent)
       }
     ]
   }

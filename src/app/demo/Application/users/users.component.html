@@ -1,0 +1,38 @@
+<div class="bg-gray-100">
+    <div class="row m-3">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+            <button class="btn btn-primary">Create</button>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>FullName</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of user">
+                <td>{{ item.userId }}</td>
+                <td>{{ item.username }}</td>
+                <td>{{ item.fullName }}</td>
+                <td>{{ item.address }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.phone }}</td>
+                <td>
+                    <button class="btn btn-info m-2">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Modal -->

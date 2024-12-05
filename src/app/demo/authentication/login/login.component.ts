@@ -28,6 +28,7 @@ export class LoginComponent {
         if (response && response.accessToken) {
           this.loginService.saveToken(response.accessToken);
           localStorage.setItem('menus', JSON.stringify(response.menus)); // Lưu menu vào localStorage
+          localStorage.setItem('permission', JSON.stringify(response.permissions)); // Lưu username vào localStorage
           this.router.navigate(['/project']); // Điều hướng đến dashboard
         }
       },

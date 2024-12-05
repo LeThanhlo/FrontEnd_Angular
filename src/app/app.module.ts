@@ -9,10 +9,11 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './theme/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { LoginModule } from './demo/authentication/login/login.module';
+import { UsersModule } from './demo/Application/users/users.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule, RouterModule, LoginModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule, RouterModule, LoginModule, UsersModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

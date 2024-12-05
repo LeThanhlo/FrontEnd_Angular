@@ -50,6 +50,10 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadComponent: () => import('./demo/other/sample-page/sample-page.component')
+      },
+      {
+        path: 'users',
+        loadComponent: () => import('./demo/Application/users/users.component').then((m) => m.UsersComponent)
       }
     ]
   }

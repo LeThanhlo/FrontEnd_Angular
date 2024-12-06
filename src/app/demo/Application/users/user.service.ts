@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PagedResult, User } from './users-list-component/user.model';
+import { PagedResult, User } from './models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class UserService {
     return this.http.post<any>(`${this.api}/create-user`, user, { headers });
   }
 
-  updateUser(id: number, user: User): Observable<any> {
+  updateUser(user: User): Observable<any> {
     const token = localStorage.getItem('accessToken'); // Lấy token từ localStorage hoặc nơi lưu trữ
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
@@ -37,7 +37,7 @@ export class UserService {
     });
 
     // Đường dẫn chứa `id` và body là `user`
-    return this.http.put<any>(`${this.api}/update-user/${id}`, user, { headers });
+    return this.http.put<any>(`${this.api}/update-user`, user, { headers });
   }
 
   deleteUser(id: number): Observable<any> {

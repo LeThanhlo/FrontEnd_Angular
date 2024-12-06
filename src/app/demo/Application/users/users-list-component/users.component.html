@@ -2,7 +2,7 @@
     <div class="row m-3">
         <div class="col-md-10"></div>
         <div class="col-md-2">
-            <button class="btn btn-primary">Create</button>
+            <button class="btn btn-primary" *ngIf="true" (click)="openCreateModal()">Create</button>
         </div>
     </div>
     <table class="table">
@@ -26,13 +26,38 @@
                 <td>{{ item.email }}</td>
                 <td>{{ item.phone }}</td>
                 <td>
-                    <button class="btn btn-info m-2">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-info m-2" *ngIf="canEdit" (click)="openEditModal(item)">Edit</button>
+                    <button class="btn btn-danger" *ngIf="canDelete"
+                        (click)="openDeleteModal(item.userId)">Delete</button>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+<div>
+</div>
+<nav>
+    <ul class="pagination pagination-sm">
+        <!-- Page Size Selector -->
+        <select id="pageSize" [value]="pagedResult.pageSize" (change)="onPageSizeChange($event)"
+            style="margin-right: 10px; border-radius: 5px; font-family: Arial, Helvetica, sans-serif; border-color: gray;">
+            <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+        </select>
+
+        <!-- Pagination Pages -->
+        <li *ngFor="let page of totalPagesArray" [class.active]="page === pagedResult.pageNumber" class="page-item">
+            <a class="page-link" (click)="goToPage(page)" [ngClass]="{
+          'bg-darkcyan': page === pagedResult.pageNumber, 
+          'bg-light': page !== pagedResult.pageNumber
+        }" style="border-radius: 3px; cursor: pointer;">
+                {{ page }}
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+
 
 
 <!-- Modal -->

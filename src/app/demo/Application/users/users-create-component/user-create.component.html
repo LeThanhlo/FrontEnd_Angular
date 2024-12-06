@@ -1,0 +1,53 @@
+<h1>Thêm mới User</h1>
+<div mat-dialog-content>
+    <form [formGroup]="createForm">
+        <div class="form-container">
+            <div class="form-item">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username" />
+                </mat-form-field>
+            </div>
+            <div class="form-item">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" />
+                </mat-form-field>
+            </div>
+            <div class="form-item">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Fullname</mat-label>
+                    <input matInput formControlName="fullname" />
+                </mat-form-field>
+            </div>
+            <div class="form-item">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="address" />
+                </mat-form-field>
+            </div>
+            <div class="form-item">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Phone</mat-label>
+                    <input matInput formControlName="phone" />
+                </mat-form-field>
+            </div>
+            <div class="form-item">
+                <mat-form-field appearance="fill" class="form-field">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="email" />
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button
+        style="background-color: #f8f9fa; color: black; padding: 5px 5px; border-radius: 4px; transition: background-color 0.3s; margin-right: 10px;"
+        (click)="onClose()">
+        Hủy
+    </button>
+    <button mmat-flat-button color="primary"
+        style="background-color: #28a745; color: white; padding: 5px 5px; border-radius: 4px; transition: background-color 0.3s;"
+        (click)="onSubmit()">Thêm mới</button>
+</div>

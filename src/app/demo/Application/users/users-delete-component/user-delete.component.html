@@ -1,0 +1,16 @@
+<h1>Xóa User</h1>
+<div mat-dialog-content>
+    <p style="text-align: center;">Bạn có chắc muốn xóa user này không?</p>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+    <button mat-button
+        style="background-color: #f8f9fa; color: black; padding: 5px 5px; border-radius: 4px; transition: background-color 0.3s; margin-right: 10px;"
+        (click)="onClose()">
+        Hủy
+    </button>
+    <button mat-button
+        style="background-color: #28a745; color: white; padding: 5px 5px; border-radius: 4px; transition: background-color 0.3s;"
+        (click)="onDelete()">
+        Xoá
+    </button>
+</div>

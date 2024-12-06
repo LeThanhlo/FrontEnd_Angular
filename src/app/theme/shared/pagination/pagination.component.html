@@ -1,0 +1,16 @@
+<nav>
+    <ul class="pagination" style="display: flex; align-items: center;">
+        <select id="pageSize" [value]="pagedResult.pageSize" (change)="onPageSizeChange($event)"
+            style="margin-right: 10px; border-radius: 5px; font-family: Arial, Helvetica, sans-serif; border-color: gray;">
+            <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+        </select>
+
+        <li class="page-item" *ngFor="let page of totalPagesArray" [class.active]="page === pagedResult.pageNumber"
+            style="list-style-type: none;">
+            <a class="page-link" (click)="goToPage(page)"
+                style="padding: 2px 8px; border-radius: 5px; background-color: darkcyan; border: none; color: white;">
+                {{ page }}
+            </a>
+        </li>
+    </ul>
+</nav>

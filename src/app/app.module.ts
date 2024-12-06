@@ -10,10 +10,11 @@ import { SharedModule } from './theme/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { LoginModule } from './demo/authentication/login/login.module';
 import { UsersModule } from './demo/Application/users/users.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule, RouterModule, LoginModule, UsersModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, BrowserAnimationsModule, RouterModule, LoginModule, UsersModule, FormsModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,0 +1,24 @@
+.notification-modal {
+    text-align: center;
+
+    h6 {
+        margin: 10px;
+        font-size: 18px;
+        color: #4caf50;
+
+        &.error {
+            color: #f44336;
+        }
+    }
+
+    p {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    button {
+        margin: 10px;
+        padding: 2px 6px;
+        border: none;
+        border-radius: 4px;
+    }
+}
